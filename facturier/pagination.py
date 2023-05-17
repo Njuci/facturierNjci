@@ -21,4 +21,14 @@ def pgt(request,invoices):
         item_page=pagination.page(pagination.num_pages)
     return item_page
 
+def ct(pk):
+    fac=Facture.objects.get(pk=pk)
+    article=fac.article_set.all()
+    l={fac,article}
+    context={
+            'obj':fac,
+            'articles':article
+        }
+    return context
+
     

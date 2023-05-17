@@ -55,7 +55,7 @@
                </td>
                <td>{{facture.get_typedf_display }}</td>
                <td>
-                  <a href="#" title="Detail" class="badge text-white bg-success">Voir</a>
+                  <a href="{% url 'invoice_visualization' pk=facture.pk %}" title="Detail" class="badge text-white bg-success">Voir</a>
 
                   <button id="btn-invoice-sup" type="button" data-toggle="modal" data-target="#supprimer"
                      class="badge text-white bg-danger" title="Supprimer" data-id="{{ facture.pk }}"
@@ -155,7 +155,8 @@
             <form method="post">
                {% csrf_token %}
                <input name="id_supprimer" type="hidden" id="id_supprimer">
-               <label id="label_id_s" class="text-dark checkbox-inline"> <strong id="strong_id_s">Etes-vous sûr de supprimer cette facture?</strong></label>
+               <label id="label_id_s" class="text-dark checkbox-inline"> 
+                  <strong id="strong_id_s">Etes-vous sûr de supprimer cette facture?</strong></label>
 
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
